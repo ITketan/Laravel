@@ -10,6 +10,7 @@ class UserController extends Controller
     //
     function getData()
     {
-        return User::all();
+        $data = User::paginate(2);
+        return view('list',['users'=>$data]);
     }
 }
