@@ -1,9 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\membersController;
-use App\Http\Controllers\getControlller;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('add',[membersController::class,'addData']);
-Route::get('list',[getControlller::class,'list']);
-Route::get('delete/{id}',[getControlller::class,'delete']);
-Route::get('edit/{id}',[getControlller::class,'showData']);
-Route::post('edit',[getControlller::class,'update']);
-Route::view('add','addmember');
+Route::get('profile/{lang}', function($lang){
+    App::setlocale($lang);
+    return view('profile');
+});
+
+// Route::view('profile','profile');
